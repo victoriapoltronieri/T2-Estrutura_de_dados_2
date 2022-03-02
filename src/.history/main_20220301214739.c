@@ -8,15 +8,6 @@ int main(int argc, char** argv){
     if(argc != 5){
         printf("ERRO: Argumentos insuficientes!");
     }
-
-    char* comandos = malloc(strlen(argv[1])* sizeof(char));
-    int i = 0;
-
-    while (*argv[1] != '\0' ) {
-        comandos[i] = *argv[1]; 
-            argv[1]++ ; 
-            i++;
-    }
     
 
     
