@@ -21,7 +21,7 @@ int main(int argc, char** argv){
     argv[4] == query, a ser buscada
     */
     if(argc != 5){
-        printf("ERRO: Argumentos insuficientes!\n");
+        printf("ERRO: Argumentos insuficientes!");
     }
 
     char* comandos = malloc(strlen(argv[1])* sizeof(char));
@@ -37,25 +37,16 @@ int main(int argc, char** argv){
     printf("%c", tipo_ordenacao);
     
 
-    switch (comandos[1]){
-    case 'a':
+    /*switch (comandos[1]){
+    case /* constant-expression */:
+        /* code 
         break;
     
-    case 'o':
-        break;
-    
-    case 'r':
-        break;
-    
-    case 'c':
-        break;
-    
-    case 's':
-        break;
-
     default:
-        printf("ERRO: Comando não identificado.\n");
-    }
+        break;
+    }*/
+
+
     
 
     

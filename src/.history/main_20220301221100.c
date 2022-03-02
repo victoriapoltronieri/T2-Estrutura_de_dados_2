@@ -56,6 +56,8 @@ int main(int argc, char** argv){
     default:
         printf("ERRO: Comando não identificado.\n");
     }
+
+
     
 
     
