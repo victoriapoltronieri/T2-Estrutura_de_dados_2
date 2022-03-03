@@ -35,24 +35,22 @@ int main(int argc, char** argv){
     char* texto = (char*)malloc(sizeof(char) * tam_arq);
     char leitura;
   
-    while(fscanf(fp, "%c", &leitura) != EOF){
-        if(leitura != '\n' && leitura != ' ' && leitura != '\0'){
+    while(fscanf(fp, "%c", leitura) != EOF){
+        if(leitura == "\n" && espaco >= 1){
+            continue; 
+        }
+        if(leitura == " " && espaco >= 1){
+            continue;
+        }
+        else{
             texto[i] = leitura;
-            espaco = 0;
+            espaco++;
             i++;
         }
-        if((leitura == '\n' ||leitura == ' ' || leitura == '\0') && espaco == 0){
-            if(leitura != '\0'){
-                texto[i] = ' ';
-                espaco++;
-                i++;
-            }
-        }
     }
-    /*FILE* resp = fopen("resp.txt", "w");
-    fprintf(resp, "%s", texto);
-    fclose(resp);*/
-    
+
+    printf("%s", texto);
+
 
     char* comandos = malloc(strlen(argv[1])* sizeof(char));
     i = 0;
@@ -88,7 +86,7 @@ int main(int argc, char** argv){
     }
     
 
-    fclose(fp);
+    
     free(comandos);
     return 0;
 }

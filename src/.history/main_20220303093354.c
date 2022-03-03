@@ -29,33 +29,20 @@ int main(int argc, char** argv){
         printf("ERRO: Argumentos insuficientes!\n");
     }
 
-    int tam_arq, i =0, espaco = 0;
+    int tam_arq;
     fscanf(fp, "%d\n", &tam_arq);
 
     char* texto = (char*)malloc(sizeof(char) * tam_arq);
-    char leitura;
-  
-    while(fscanf(fp, "%c", &leitura) != EOF){
-        if(leitura != '\n' && leitura != ' ' && leitura != '\0'){
-            texto[i] = leitura;
-            espaco = 0;
-            i++;
-        }
-        if((leitura == '\n' ||leitura == ' ' || leitura == '\0') && espaco == 0){
-            if(leitura != '\0'){
-                texto[i] = ' ';
-                espaco++;
-                i++;
-            }
-        }
-    }
-    /*FILE* resp = fopen("resp.txt", "w");
-    fprintf(resp, "%s", texto);
-    fclose(resp);*/
     
 
+    printf("%d\n", tam_arq);
+
+    
+
+    printf("%s\n", texto);
+
     char* comandos = malloc(strlen(argv[1])* sizeof(char));
-    i = 0;
+    int i = 0;
 
     while (*argv[1] != '\0' ) {
         comandos[i] = *argv[1]; 
@@ -88,7 +75,7 @@ int main(int argc, char** argv){
     }
     
 
-    fclose(fp);
+    
     free(comandos);
     return 0;
 }

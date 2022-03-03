@@ -50,8 +50,9 @@ int main(int argc, char** argv){
         }
     }
     /*FILE* resp = fopen("resp.txt", "w");
-    fprintf(resp, "%s", texto);
-    fclose(resp);*/
+    fprintf(resp, "%s", texto);*/
+
+    fclose(resp);
     
 
     char* comandos = malloc(strlen(argv[1])* sizeof(char));

@@ -31,6 +31,7 @@ int main(int argc, char** argv){
 
     int tam_arq, i =0, espaco = 0;
     fscanf(fp, "%d\n", &tam_arq);
+    printf("%d", tam_arq);
 
     char* texto = (char*)malloc(sizeof(char) * tam_arq);
     char leitura;
@@ -49,9 +50,10 @@ int main(int argc, char** argv){
             }
         }
     }
-    /*FILE* resp = fopen("resp.txt", "w");
+    FILE* resp = fopen("resp.txt", "w");
     fprintf(resp, "%s", texto);
-    fclose(resp);*/
+
+    fclose(resp);
     
 
     char* comandos = malloc(strlen(argv[1])* sizeof(char));
