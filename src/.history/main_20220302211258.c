@@ -23,23 +23,23 @@ int main(int argc, char** argv){
 
     FILE* fp = fopen(argv[2], "r");
         if(fp != NULL){
-            printf("ABERTO COM SUCESSO\n");
+            printf("ABERTO COM SUCESSO");
         }
     if(argc != 5){
         printf("ERRO: Argumentos insuficientes!\n");
     }
 
     char* texto;
-    int tam_arq;
-    fscanf(fp, "%d\n", &tam_arq);
+    char tam_arq;
+    fscanf(fp, "%d\n", tam_arq);
 
     char linha[tam_arq];
 
     printf("%d\n", tam_arq);
 
-    texto = fputs(linha, fp);
+    texto = fgets(texto, tam_arq, fp);
 
-    printf("%s\n", texto);
+    printf("%s", texto);
 
     char* comandos = malloc(strlen(argv[1])* sizeof(char));
     int i = 0;

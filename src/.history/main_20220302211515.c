@@ -37,7 +37,7 @@ int main(int argc, char** argv){
 
     printf("%d\n", tam_arq);
 
-    texto = fputs(linha, fp);
+    texto = fgets(linha, tam_arq]+1, fp);
 
     printf("%s\n", texto);
 

@@ -37,9 +37,9 @@ int main(int argc, char** argv){
 
     printf("%d\n", tam_arq);
 
-    texto = fputs(linha, fp);
+    texto = fgets(texto, tam_arq, fp);
 
-    printf("%s\n", texto);
+    //printf("%s", texto);
 
     char* comandos = malloc(strlen(argv[1])* sizeof(char));
     int i = 0;
