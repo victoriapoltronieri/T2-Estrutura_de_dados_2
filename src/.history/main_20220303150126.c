@@ -78,7 +78,7 @@ int main(int argc, char** argv){
             suf[i] = create_suf_array(s, i);
         }
         for(int i = 0; i < tam_arq; i++){
-            print_suf_array(suf[i], i);
+            print_suf_array(suf[i]);
         }
         break;
     

@@ -52,7 +52,9 @@ int main(int argc, char** argv){
     }
 
     String *s = create_string(texto);
-    Suffix **suf = (Suffix**)malloc(sizeof(Suffix*)*tam_arq);
+    Suffix *suf;
+
+    
 
     /*FILE* resp = fopen("resp.txt", "w");
     fprintf(resp, "%s", texto);
@@ -75,10 +77,7 @@ int main(int argc, char** argv){
     switch (comandos[1]){
     case 'a':
         for(int i = 0; i < tam_arq; i++){
-            suf[i] = create_suf_array(s, i);
-        }
-        for(int i = 0; i < tam_arq; i++){
-            print_suf_array(suf[i], i);
+            suf[i] = create_suffix(s, i);
         }
         break;
     
@@ -101,7 +100,7 @@ int main(int argc, char** argv){
 
     fclose(fp);
     free(comandos);
-    //destroy_string(s);
+    destroy_string(s);
     i = 0;
     /*while(i < tam_arq){
         destroy_suffix(suf[i]);

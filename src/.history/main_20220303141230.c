@@ -21,14 +21,14 @@ int main(int argc, char** argv){
     argv[4] == query, a ser buscada
     */
 
-    if(argc != 5){
+   if(argc != 5){
         printf("ERRO: Argumentos insuficientes!\n");
     }
 
     FILE* fp = fopen(argv[2], "r");
-    if(fp == NULL){
-        printf("ERRO: Arquivo não foi aberto\n");
-    }
+        if(fp == NULL){
+            printf("ERRO: Arquivo não foi aberto\n");
+        }
 
     int tam_arq, i =0, espaco = 0;
     fscanf(fp, "%d\n", &tam_arq);
@@ -52,7 +52,10 @@ int main(int argc, char** argv){
     }
 
     String *s = create_string(texto);
-    Suffix **suf = (Suffix**)malloc(sizeof(Suffix*)*tam_arq);
+
+    for(int i = 0; i < tam_arq; i++){
+        Suffix *suf = create_suffix(s, i);
+    }
 
     /*FILE* resp = fopen("resp.txt", "w");
     fprintf(resp, "%s", texto);
@@ -74,12 +77,6 @@ int main(int argc, char** argv){
 
     switch (comandos[1]){
     case 'a':
-        for(int i = 0; i < tam_arq; i++){
-            suf[i] = create_suf_array(s, i);
-        }
-        for(int i = 0; i < tam_arq; i++){
-            print_suf_array(suf[i], i);
-        }
         break;
     
     case 'o':
@@ -101,11 +98,5 @@ int main(int argc, char** argv){
 
     fclose(fp);
     free(comandos);
-    //destroy_string(s);
-    i = 0;
-    /*while(i < tam_arq){
-        destroy_suffix(suf[i]);
-        i++;
-    }*/
     return 0;
 }
