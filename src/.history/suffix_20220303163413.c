@@ -14,7 +14,7 @@ Suffix* create_suffix(String *s, int index){
 Suffix** create_suf_array(String* text, int N){
     Suffix** suf = (Suffix** )malloc(sizeof(Suffix* ) *N);
     for(int i = 0; i < N; i++){
-        suf[i] = create_suffix(text, i);
+        suf[i] = create_suffix(text, N-i);
     }
     return suf;
 }

@@ -4,9 +4,8 @@
 #include "str.h"
 
 typedef struct {
-    String *s; //ABRACADABRA
-    int index; //4 
-    //ISSO SIGNIFICA QUE O SUFIXO: CADABRA
+    String *s; //ABA
+    int index;
 } Suffix;
 
 Suffix* create_suffix(String *s, int index);

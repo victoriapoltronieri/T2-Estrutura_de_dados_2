@@ -81,7 +81,7 @@ int main(int argc, char** argv){
     
     case 'o':
         suf = create_suf_array(s, tam_arq);
-        quicksort(suf, 0, tam_arq);
+        quicksort()
         print_suf_array(suf, tam_arq);
         break;
     

@@ -3,7 +3,6 @@
 #include <stdlib.h>
 #include "suffix.h"
 #include "str.h"
-#include "ordena.h"
 
 int main(int argc, char** argv){
     /*
@@ -53,7 +52,7 @@ int main(int argc, char** argv){
     }
 
     String *s = create_string(texto);
-    Suffix **suf;
+    Suffix **suf = (Suffix**)malloc(sizeof(Suffix*)*tam_arq);
 
     /*FILE* resp = fopen("resp.txt", "w");
     fprintf(resp, "%s", texto);
@@ -70,19 +69,18 @@ int main(int argc, char** argv){
     }
 
     char tipo_ordenacao = comandos[1];
-    //printf("%c", tipo_ordenacao);
+    printf("%c", tipo_ordenacao);
     
 
-    switch (tipo_ordenacao){
-    case 'a': //ok
+    switch (comandos[1]){
+    case 'a':
         suf = create_suf_array(s, tam_arq);
-        print_suf_array(suf, tam_arq);
+        for(int i = 0; i < tam_arq; i++){
+            print_suf_array(suf[i], i);
+        }
         break;
     
     case 'o':
-        suf = create_suf_array(s, tam_arq);
-        quicksort(suf, 0, tam_arq);
-        print_suf_array(suf, tam_arq);
         break;
     
     case 'r':

@@ -13,8 +13,8 @@ Suffix* create_suffix(String *s, int index){
 
 Suffix** create_suf_array(String* text, int N){
     Suffix** suf = (Suffix** )malloc(sizeof(Suffix* ) *N);
-    for(int i = 0; i < N; i++){
-        suf[i] = create_suffix(text, i);
+    for(int i = N-1; i >= 0; i--){
+        suf[i] = create_suffix(text, N-i);
     }
     return suf;
 }
@@ -32,13 +32,11 @@ void destroy_suf_array(Suffix** a, int N){
 }
 
 void print_suf_array(Suffix** a, int N){
-    for(int i = 0; i < N; i++){
-        print_suffix(a[i]);
-    }
+    print_suffix(a[N]);
 }
 
 void print_suffix(Suffix* suf){
-    print_substring(suf->s, suf->index, suf->s->len);
+    print_string(suf->s);
 }
 
 // Use uma (ou mais) funcoes deste tipo para ordenar

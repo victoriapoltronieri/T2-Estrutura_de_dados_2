@@ -3,7 +3,6 @@
 #include <stdlib.h>
 #include "suffix.h"
 #include "str.h"
-#include "ordena.h"
 
 int main(int argc, char** argv){
     /*
@@ -81,7 +80,6 @@ int main(int argc, char** argv){
     
     case 'o':
         suf = create_suf_array(s, tam_arq);
-        quicksort(suf, 0, tam_arq);
         print_suf_array(suf, tam_arq);
         break;
     

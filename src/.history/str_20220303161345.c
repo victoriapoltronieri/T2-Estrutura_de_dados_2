@@ -66,7 +66,7 @@ void destroy_str_array(String* *a, int N) {
 }
 
 // Exibe o vetor de Strings em stdout.
-void print_str_array(String**a, int N) {
+void print_str_array(String* *a, int N) {
     for (int i = 0; i < N; i++) {
         print_string(a[i]);
         printf("\n");
@@ -85,5 +85,4 @@ void print_substring(String *s, int from, int to) {
     for (int i = from; i < to; i++) {
         printf("%c", s->c[i]);
     }
-    printf("\n");
 }

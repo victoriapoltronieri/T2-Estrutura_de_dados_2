@@ -85,5 +85,4 @@ void print_substring(String *s, int from, int to) {
     for (int i = from; i < to; i++) {
         printf("%c", s->c[i]);
     }
-    printf("\n");
 }
