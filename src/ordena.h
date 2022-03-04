@@ -7,4 +7,6 @@ Suffix** heapsort(Suffix** vet, int tam_vetor);
 
 void criaHeap(Suffix** vet, int inicio_vet, int tam_vetor);
 
+void shellsort(Suffix **vet, int tam_vet);
+
 #endif

@@ -1,59 +1,56 @@
 #include "suffix.h"
 #include "str.h"
 #include "ordena.h"
+#include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
 
-/*Suffix** heapsort(Suffix **vet, int tam_vetor){
+Suffix **heapsort(Suffix **vet, int tam_vetor)
+{
     int i;
     // cria uma heap com os dados do vetor; não está ordenado
-    for(i = (tam_vetor/2) - 1; i >= 0; i--){ 
-        criaHeap(vet, i, tam_vetor); 
+    for (i = (tam_vetor - 1) / 2; i >= 0; i--)
+    {
+        criaHeap(vet, i, tam_vetor - 1);
     }
 
-    suffix* aux;
+    Suffix *aux;
     //? ordena a heap; os maiores valores ficam no topo
-    for(i = tam_vetor-1; i >= 0; i--){
+    for (i = tam_vetor - 1; i >= 0; i--)
+    {
         aux = vet[0];
         vet[0] = vet[i];
         vet[i] = aux;
-        //refaz a heap colocando os menores valores nas últimas posições
-        criaHeap(vet, 0, i);
+        // refaz a heap colocando os menores valores nas últimas posições
+        criaHeap(vet, 0, i - 1);
     }
     return vet;
 }
 
-void criaHeap(Suffix** vet, int inicio_vet, int tam_vetor){
-    Suffix* aux = vet[inicio_vet];
-    int j = inicio_vet * 2 + 1; //primeiro filho; j + 1 == segundo filho
-    
-    //Enquanto o filho estiver dentro do vetor, continua a verificação do tamanho dos filhos
-    while(j <= tam_vetor){
-        if(j < tam_vetor){
-            //if(vet[j] < vet[j + 1]){
-            //    j = j + 1;
-            //}
-            int loop;
-            if(vet[j].index + vet[j+1].index > vet[j].s->len) loop=
-            for(int k = 0; k < loop; k++){
-                if((vet[j].s->c + ( vet[j].index + k)) < (vet[j+1].s->c + ( vet[j].index) + k)){
-                    j = j + 1;
-                    break;
-                }else if((vet[j].s->c + ( vet[j].index + k)) == (vet[j+1].s->c + ( vet[j].index) + k)){
-                    continue;
-                } else break;
+void criaHeap(Suffix **vet, int inicio_vet, int tam_vetor)
+{
+    Suffix *aux = vet[inicio_vet];
+    int j = inicio_vet * 2 + 1;
+    while (j <= tam_vetor)
+    {
+        if (j < tam_vetor)
+        {
+            int a = (vet[j]->index);
+            int b = (vet[j + 1]->index);
+            int comp = strcmp(vet[j]->s->c + a, vet[j + 1]->s->c + b);
+            if (comp < 0)
+            {
+                j += 1;
             }
         }
-
-        if(aux < vet[j]){
-            vet[inicio_vet] = vet[j];
-            inicio_vet = j;
-            j = inicio_vet * 2 + 1;
-        }
-
-        else{
-            j = tam_vetor + 1;
-        }
+        int a = (aux->index);
+        int b = (vet[j]->index);
+        int comp = strcmp(aux->s->c + a, vet[j]->s->c + b);
+        if(comp<0){
+            vet[inicio_vet]=vet[j];
+            inicio_vet=j;
+            j=2*inicio_vet+1;
+        }else j=tam_vetor+1;
     }
-    vet[inicio_vet] = aux;
-}*/
+    vet[inicio_vet]=aux;
+}

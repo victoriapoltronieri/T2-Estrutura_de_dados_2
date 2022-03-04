@@ -52,13 +52,10 @@ int main(int argc, char** argv){
         }
     }
 
-    String *s = create_string(texto);
-    Suffix **suf;
-
-    /*FILE* resp = fopen("resp.txt", "w");
-    fprintf(resp, "%s", texto);
-    fclose(resp);*/
-    
+    String *str=create_string(texto);
+    Suffix **suf=create_suf_array(str, tam_arq);
+    heapsort(suf, tam_arq);
+    print_suf_array(suf, tam_arq);
 
     char* comandos = malloc(strlen(argv[1])* sizeof(char));
     i = 0;
@@ -75,14 +72,14 @@ int main(int argc, char** argv){
 
     switch (tipo_ordenacao){
     case 'a': //ok
-        suf = create_suf_array(s, tam_arq);
-        print_suf_array(suf, tam_arq);
+       /* suf = create_suf_array(s, tam_arq);
+        print_suf_array(suf, tam_arq);*/
         break;
     
     case 'o':
-        suf = create_suf_array(s, tam_arq);
+        /*suf = create_suf_array(s, tam_arq);
         quicksort(suf, 0, tam_arq);
-        print_suf_array(suf, tam_arq);
+        print_suf_array(suf, tam_arq);*/
         break;
     
     case 'r':
