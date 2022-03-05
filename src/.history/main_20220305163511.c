@@ -76,7 +76,7 @@ int main(int argc, char** argv){
     case 'a':{ //ok
         Suffix** suf = create_suf_array(s, tam_arq);
         print_suf_array(suf, tam_arq);
-        free(suf);
+        destroy_suf_array(suf, tam_arq);
         break;
     }
     
@@ -86,6 +86,7 @@ int main(int argc, char** argv){
         print_suf_array(suf, tam_arq);
         //quicksort(suf, 0, tam_arq-1);
         //print_suf_array(suf, tam_arq);
+        //destroy_suf_array(suf, tam_arq);
         free(suf);
         break;
     }

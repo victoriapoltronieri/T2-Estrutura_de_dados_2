@@ -76,7 +76,7 @@ int main(int argc, char** argv){
     case 'a':{ //ok
         Suffix** suf = create_suf_array(s, tam_arq);
         print_suf_array(suf, tam_arq);
-        free(suf);
+        destroy_suf_array(suf, tam_arq);
         break;
     }
     
@@ -86,7 +86,7 @@ int main(int argc, char** argv){
         print_suf_array(suf, tam_arq);
         //quicksort(suf, 0, tam_arq-1);
         //print_suf_array(suf, tam_arq);
-        free(suf);
+        destroy_suf_array(suf, tam_arq);
         break;
     }
     case 'r':{
@@ -123,6 +123,11 @@ int main(int argc, char** argv){
         printf("Shellsort	%f (s)\n", time);
         //print_suf_array(suf_shell, tam_arq);
 
+        i = 0;
+    while(i < tam_arq){
+        destroy_suffix(suf[i]);
+        i++;
+    }
         }
         break;
     
@@ -138,6 +143,6 @@ int main(int argc, char** argv){
 
     fclose(fp);
     free(comandos);
-    destroy_string(s);
+    //destroy_string(s);
     return 0;
 }
