@@ -52,6 +52,7 @@ int main(int argc, char** argv){
         }
     }
 
+    
 
     char* comandos = malloc(strlen(argv[1])* sizeof(char));
     i = 0;
@@ -65,35 +66,30 @@ int main(int argc, char** argv){
     char tipo_ordenacao = comandos[1];
     //printf("%c", tipo_ordenacao);
     
-    String *s =create_string(texto);
-    Suffix **suf=create_suf_array(s, tam_arq);
-    
-
 
     switch (tipo_ordenacao){
     case 'a': //ok
-        
-        suf = create_suf_array(s, tam_arq);
-        print_suf_array(suf, tam_arq);
+       /* suf = create_suf_array(s, tam_arq);
+        print_suf_array(suf, tam_arq);*/
         break;
     
-    case 'o': //ok
-        suf = create_suf_array(s, tam_arq);
-        printf("oi aqui\n");
-        quicksort(suf, 0, tam_arq-1);
-        printf("saiu aqui\n");
-        print_suf_array(suf, tam_arq);
+    case 'o':
+        /*suf = create_suf_array(s, tam_arq);
+        quicksort(suf, 0, tam_arq);
+        print_suf_array(suf, tam_arq);*/
         break;
     
-    case 'r':{
-            Suffix **suf_heap = create_suf_array(s, tam_arq);
-            heapsort(suf_heap, tam_arq);
-            print_suf_array(suf_heap, tam_arq);
+    case 'r':
+        String *str=create_string(texto);
+        Suffix **suf_heap=create_suf_array(str, tam_arq);
+        heapsort(suf_heap, tam_arq);
+        print_suf_array(suf_heap, tam_arq);
 
-            Suffix **suf_shell=create_suf_array(s, tam_arq);
-            heapsort(suf_shell, tam_arq);
-            print_suf_array(suf_shell, tam_arq);
-        }
+        Suffix **suf_shell=create_suf_array(str, tam_arq);
+        heapsort(suf_shell, tam_arq);
+        print_suf_array(suf_shell, tam_arq);
+
+
         break;
     
     case 'c':

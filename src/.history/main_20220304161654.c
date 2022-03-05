@@ -77,23 +77,26 @@ int main(int argc, char** argv){
         print_suf_array(suf, tam_arq);
         break;
     
-    case 'o': //ok
+    case 'o':
         suf = create_suf_array(s, tam_arq);
         printf("oi aqui\n");
-        quicksort(suf, 0, tam_arq-1);
+        quicksort(suf, 0, tam_arq);
         printf("saiu aqui\n");
         print_suf_array(suf, tam_arq);
         break;
     
     case 'r':{
-            Suffix **suf_heap = create_suf_array(s, tam_arq);
-            heapsort(suf_heap, tam_arq);
-            print_suf_array(suf_heap, tam_arq);
 
-            Suffix **suf_shell=create_suf_array(s, tam_arq);
-            heapsort(suf_shell, tam_arq);
-            print_suf_array(suf_shell, tam_arq);
+        Suffix **suf_heap = create_suf_array(s, tam_arq);
+        heapsort(suf_heap, tam_arq);
+        print_suf_array(suf_heap, tam_arq);
+
+        Suffix **suf_shell=create_suf_array(s, tam_arq);
+        heapsort(suf_shell, tam_arq);
+        print_suf_array(suf_shell, tam_arq);
         }
+
+
         break;
     
     case 'c':

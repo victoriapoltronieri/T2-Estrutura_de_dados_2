@@ -86,13 +86,14 @@ int main(int argc, char** argv){
         break;
     
     case 'r':{
-            Suffix **suf_heap = create_suf_array(s, tam_arq);
-            heapsort(suf_heap, tam_arq);
-            print_suf_array(suf_heap, tam_arq);
 
-            Suffix **suf_shell=create_suf_array(s, tam_arq);
-            heapsort(suf_shell, tam_arq);
-            print_suf_array(suf_shell, tam_arq);
+        Suffix **suf_heap = create_suf_array(s, tam_arq);
+        heapsort(suf_heap, tam_arq);
+        print_suf_array(suf_heap, tam_arq);
+
+        Suffix **suf_shell=create_suf_array(s, tam_arq);
+        heapsort(suf_shell, tam_arq);
+        print_suf_array(suf_shell, tam_arq);
         }
         break;
     
