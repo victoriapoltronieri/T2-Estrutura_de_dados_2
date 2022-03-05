@@ -59,19 +59,24 @@ int compare_suffix(Suffix* a, Suffix* b){
 int sufcmp(const void * a, const void *b){
     Suffix** um = (Suffix**) a;
     Suffix** dois = (Suffix**) b;
-    int comp = compare_suffix(um[0], dois[0]);
-    //int comp = 1;
-    if(comp <= 0){
+    
+    int comp = compare_suffix(um, dois);
+    if(comp == -1){
+        return -1;
+    }
+    else if(comp == 0){
         return 0;
     }
-    else if(comp > 0){
+    else if(comp == 1){
         return 1;
     }
+
 }
 
 // Use uma (ou mais) funcoes deste tipo para ordenar
 // o arry de sufixos usando o qsort e outro metodo de sua escolha
 void sort_suf_array(Suffix** a, int N){
+    printf("\noi aqui\n");
     qsort(a, N, sizeof(Suffix*), sufcmp);
 }
 

@@ -73,20 +73,20 @@ int main(int argc, char** argv){
     
 
     switch (tipo_ordenacao){
-    case 'a':{ //ok
+    case 'a': //ok
+        
         Suffix** suf = create_suf_array(s, tam_arq);
         print_suf_array(suf, tam_arq);
         break;
-    }
     
-    case 'o':{ //ok
+    case 'o': //ok
         Suffix** suf = create_suf_array(s, tam_arq);
         sort_suf_array(suf, tam_arq);
         print_suf_array(suf, tam_arq);
         //quicksort(suf, 0, tam_arq-1);
         //print_suf_array(suf, tam_arq);
         break;
-    }
+    
     case 'r':{
         
         Suffix** suf = create_suf_array(s, tam_arq);

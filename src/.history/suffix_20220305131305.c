@@ -43,36 +43,23 @@ void print_suffix(Suffix* suf){
 }
 
 int compare_suffix(Suffix* a, Suffix* b){
-   /* int index1 = a->index;
+    int index1 = a->index;
     int index2 = b->index;
-    int comp = strcmp(a->s->c + index1, b->s->c + index2);*/
+    int comp = strcmp(a->s->c + index1, b->s->c + index2);
 
-    int comp = compare(a->s, b->s, a->index, b->index);
-    if(comp <= 0){ // caso a segunda seja maior ou igual
-        return 0;
+    compare(a->s->c + index1, b->s->c + index2);
+    if(comp <=0){ // caso a segunda seja maior
+        return 1;
     }
     else if(comp > 0){ // caso a primeira seja maior
-        return 1;
-    }
-}
-
-int sufcmp(const void * a, const void *b){
-    Suffix** um = (Suffix**) a;
-    Suffix** dois = (Suffix**) b;
-    int comp = compare_suffix(um[0], dois[0]);
-    //int comp = 1;
-    if(comp <= 0){
         return 0;
-    }
-    else if(comp > 0){
-        return 1;
     }
 }
 
 // Use uma (ou mais) funcoes deste tipo para ordenar
 // o arry de sufixos usando o qsort e outro metodo de sua escolha
 void sort_suf_array(Suffix** a, int N){
-    qsort(a, N, sizeof(Suffix*), sufcmp);
+    qsort(a, N, sizeof(Suffix*), compare_suffix(a, ));
 }
 
 int rank(Suffix** a, int N, String *query){

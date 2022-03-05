@@ -21,7 +21,7 @@ void print_suf_array(Suffix* *a, int N);
 
 void print_suffix(Suffix *suf);
 
-int compare_suffix(Suffix* a, Suffix* b);
+compare_suffix(Suffix* a, Suffix* b);
 
 // Use uma (ou mais) funcoes deste tipo para ordenar
 // o arry de sufixos usando o qsort e outro metodo de sua escolha

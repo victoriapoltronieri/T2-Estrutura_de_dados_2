@@ -69,57 +69,46 @@ int main(int argc, char** argv){
     //printf("%c", tipo_ordenacao);
     
     String *s =create_string(texto);
-    //Suffix **suf=create_suf_array(s, tam_arq);
+    Suffix **suf=create_suf_array(s, tam_arq);
+
+    sort_suf_array(suf, tam_arq);
+    printf("oi\n");
+    print_suf_array(suf, tam_arq);
     
 
     switch (tipo_ordenacao){
-    case 'a':{ //ok
-        Suffix** suf = create_suf_array(s, tam_arq);
+    case 'a': //ok
+        
+        suf = create_suf_array(s, tam_arq);
         print_suf_array(suf, tam_arq);
         break;
-    }
     
-    case 'o':{ //ok
-        Suffix** suf = create_suf_array(s, tam_arq);
-        sort_suf_array(suf, tam_arq);
-        print_suf_array(suf, tam_arq);
-        //quicksort(suf, 0, tam_arq-1);
+    case 'o': //ok
+        suf = create_suf_array(s, tam_arq);
+        quicksort(suf, 0, tam_arq-1);
         //print_suf_array(suf, tam_arq);
         break;
-    }
+    
     case 'r':{
-        
-        Suffix** suf = create_suf_array(s, tam_arq);
-        t = clock(); //!armazena tempo
-        sort_suf_array(suf, tam_arq);
-        t = clock() - t; //!tempo final - tempo inicial
-        time = ((double)t)/((CLOCKS_PER_SEC)); //!tempo em segundos
-        printf("System qsort	%f (s)\n", time);
+            Suffix **suf_quick= create_suf_array(s, tam_arq);
+            t = clock(); //!armazena tempo   
+            quicksort(suf_quick, 0, tam_arq-1);
+            t = clock() - t; //!tempo final - tempo inicial
+            time = ((double)t)/((CLOCKS_PER_SEC)); //!tempo em segundos
+            printf("Quicksort	%f (s)", time);
+            //print_suf_array(suf_quick, tam_arq);
 
+            Suffix **suf_heap = create_suf_array(s, tam_arq);
+            t = clock(); //!armazena tempo
+            heapsort(suf_heap, tam_arq);
+            t = clock() - t; //!tempo final - tempo inicial
+            time = ((double)t)/((CLOCKS_PER_SEC)); //!tempo em segundos
+            printf("Heapsort	%f (s)", time);
+            //print_suf_array(suf_heap, tam_arq);
 
-        Suffix **suf_quick= create_suf_array(s, tam_arq);
-        t = clock(); //!armazena tempo   
-        quicksort(suf_quick, 0, tam_arq-1);
-        t = clock() - t; //!tempo final - tempo inicial
-        time = ((double)t)/((CLOCKS_PER_SEC)); //!tempo em segundos
-        printf("Quicksort	%f (s)\n", time);
-        //print_suf_array(suf_quick, tam_arq);
-
-        Suffix **suf_heap = create_suf_array(s, tam_arq);
-        t = clock(); //!armazena tempo
-        heapsort(suf_heap, tam_arq);
-        t = clock() - t; //!tempo final - tempo inicial
-        time = ((double)t)/((CLOCKS_PER_SEC)); //!tempo em segundos
-        printf("Heapsort	%f (s)\n", time);
-        //print_suf_array(suf_heap, tam_arq);
-
-        Suffix **suf_shell=create_suf_array(s, tam_arq);
-        t = clock(); //!armazena tempo
-        shellsort(suf_shell, tam_arq);
-        t = clock() - t; //!tempo final - tempo inicial
-        time = ((double)t)/((CLOCKS_PER_SEC)); //!tempo em segundos
-        printf("Shellsort	%f (s)\n", time);
-        //print_suf_array(suf_shell, tam_arq);
+            Suffix **suf_shell=create_suf_array(s, tam_arq);
+            shellsort(suf_shell, tam_arq);
+            //print_suf_array(suf_shell, tam_arq);
         }
         break;
     

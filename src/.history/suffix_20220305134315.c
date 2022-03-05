@@ -57,16 +57,7 @@ int compare_suffix(Suffix* a, Suffix* b){
 }
 
 int sufcmp(const void * a, const void *b){
-    Suffix** um = (Suffix**) a;
-    Suffix** dois = (Suffix**) b;
-    int comp = compare_suffix(um[0], dois[0]);
-    //int comp = 1;
-    if(comp <= 0){
-        return 0;
-    }
-    else if(comp > 0){
-        return 1;
-    }
+
 }
 
 // Use uma (ou mais) funcoes deste tipo para ordenar

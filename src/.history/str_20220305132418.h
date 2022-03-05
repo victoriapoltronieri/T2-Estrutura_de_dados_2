@@ -23,7 +23,7 @@ void print_string(String *s);
 // -1 se s < t
 //  1 se s > t
 //  0 se s == t
-int compare(String *s, String *t, int a, int b);
+int compare(String *s, String *t);
 
 // Realiza a comparação das duas Strings dadas a partir do caractere 'd'.
 int compare_from(String *s, String *t, int a, int b);

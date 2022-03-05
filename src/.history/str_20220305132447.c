@@ -37,7 +37,7 @@ void print_string(String *s) {
 // -1 se s < t
 //  1 se s > t
 //  0 se s == t
-int compare(String *s, String *t, int a, int b) {
+int compare(String *s, String *t) {
     return compare_from(s, t, a, b);
 }
 
