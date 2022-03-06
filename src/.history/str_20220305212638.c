@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <ctype.h>
 #include "str.h"
 
 // Retorna o tamanho da string C, sem contar o terminador '\0'.
