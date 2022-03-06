@@ -66,8 +66,10 @@ int main(int argc, char** argv){
     char tipo_ordenacao = comandos[1];
     clock_t t; //variável para armazenar tempo
     double time;
+    //printf("%c", tipo_ordenacao);
     
     String *s =create_string(texto);
+    //Suffix **suf=create_suf_array(s, tam_arq);
     
 
     switch (tipo_ordenacao){

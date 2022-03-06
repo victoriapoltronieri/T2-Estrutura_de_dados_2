@@ -43,7 +43,7 @@ int compare(String *s, String *t, int a, int b) {
 }
 
 // Realiza a comparação das duas Strings dadas a partir do caractere a e b de cada string respectivamente
-// a e b são os índices de começo de cada string.
+// a e b são os índices de começo de cada string-suffix.
 int compare_from(String *s, String *t, int a, int b) {
     int min = s->len < t->len ? s->len : t->len;
     for (int i = a, j = b; i < min; i++, j++) {

@@ -38,8 +38,7 @@ int main(int argc, char** argv){
     char* texto = (char*)malloc(sizeof(char) * tam_arq);
     char leitura;
   
-    while(fscanf(fp, "%c", &leitura) != EOF){ // realiza leitura caracter por caracter
-    // verifica se os caracteres são blankspaces repetidos; caso seja quebra de linha é ignorado
+    while(fscanf(fp, "%c", &leitura) != EOF){
         if(leitura != '\n' && leitura != ' ' && leitura != '\0'){
             texto[i] = leitura;
             espaco = 0;
@@ -57,7 +56,8 @@ int main(int argc, char** argv){
 
     char* comandos = malloc(strlen(argv[1])* sizeof(char));
     i = 0;
-    while (*argv[1] != '\0' ) { //transforma -c em c para identificação do comando
+
+    while (*argv[1] != '\0' ) {
         comandos[i] = *argv[1]; 
             argv[1]++ ; 
             i++;
@@ -66,8 +66,10 @@ int main(int argc, char** argv){
     char tipo_ordenacao = comandos[1];
     clock_t t; //variável para armazenar tempo
     double time;
+    //printf("%c", tipo_ordenacao);
     
     String *s =create_string(texto);
+    //Suffix **suf=create_suf_array(s, tam_arq);
     
 
     switch (tipo_ordenacao){
