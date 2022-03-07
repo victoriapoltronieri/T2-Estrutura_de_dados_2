@@ -5,7 +5,6 @@
 #include "suffix.h"
 #include "str.h"
 #include "ordena.h"
-#include "search.h"
 
 int main(int argc, char** argv){
     /*
@@ -144,12 +143,7 @@ int main(int argc, char** argv){
         }
         break;
     
-    case 's':{
-        int context;
-        char *query;
-        char query_s[1000];
-        int q = 0;
-        Suffix** suf = create_suf_array(s, tam_arq);
+    case 's':
         heapsort(suf, tam_arq);
         context = atoi(argv[3]);
         
@@ -158,7 +152,7 @@ int main(int argc, char** argv){
             printf("Insira uma query para busca sem aspas:\n");
             if(!(scanf("%[^\n]%*c", query_s)))break;
             search(suf, context, tam_arq, query_s);
-        }}
+        }
         break;
 
     default:

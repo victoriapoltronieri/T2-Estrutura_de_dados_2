@@ -5,7 +5,6 @@
 #include "suffix.h"
 #include "str.h"
 #include "ordena.h"
-#include "search.h"
 
 int main(int argc, char** argv){
     /*
