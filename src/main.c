@@ -24,6 +24,10 @@ int main(int argc, char** argv){
     argv[4] == query, a ser buscada
     */
 
+    if(argc != 5){
+        printf("ERRO: Argumentos insuficientes!\n");
+    }
+
     FILE* fp = fopen(argv[2], "r");
     if(fp == NULL){
         printf("ERRO: Arquivo não foi aberto\n");
@@ -66,20 +70,17 @@ int main(int argc, char** argv){
     
     String *s =create_string(texto);
     
-    char *query;
-    char query_s[1000];
-    int q = 0;
-    int context;
-    
-    Suffix** suf = create_suf_array(s, tam_arq);
+
     switch (tipo_ordenacao){
     case 'a':{ //ok
+        Suffix** suf = create_suf_array(s, tam_arq);
         print_suf_array(suf, tam_arq);
         free(suf);
         break;
     }
     
     case 'o':{ //ok
+        Suffix** suf = create_suf_array(s, tam_arq);
         sort_suf_array(suf, tam_arq);
         print_suf_array(suf, tam_arq);
         free(suf);
@@ -87,11 +88,13 @@ int main(int argc, char** argv){
     }
     case 'r':{
         
+        Suffix** suf = create_suf_array(s, tam_arq);
         t = clock(); //!armazena tempo
         sort_suf_array(suf, tam_arq);
         t = clock() - t; //!tempo final - tempo inicial
         time = ((double)t)/((CLOCKS_PER_SEC)); //!tempo em segundos
         printf("System qsort	%f (s)\n", time);
+        //print_suf_array(suf, tam_arq);
 
 
         Suffix **suf_quick= create_suf_array(s, tam_arq);
@@ -121,7 +124,12 @@ int main(int argc, char** argv){
         }
         break;
     
-    case 'c':
+    case 'c':{
+        char *query;
+        char query_s[1000];
+        int q = 0;
+        int context;
+        Suffix** suf = create_suf_array(s, tam_arq);
         query = (char *)malloc(sizeof(char) * strlen(argv[4]));
         context = atoi(argv[3]);
         while (*argv[4] != '\0')
@@ -133,9 +141,15 @@ int main(int argc, char** argv){
         }
         heapsort(suf, tam_arq);
         search(suf, context, tam_arq, query);
+        }
         break;
     
-    case 's':
+    case 's':{
+        int context;
+        char *query;
+        char query_s[1000];
+        int q = 0;
+        Suffix** suf = create_suf_array(s, tam_arq);
         heapsort(suf, tam_arq);
         context = atoi(argv[3]);
         
@@ -144,7 +158,7 @@ int main(int argc, char** argv){
             printf("Insira uma query para busca sem aspas:\n");
             if(!(scanf("%[^\n]%*c", query_s)))break;
             search(suf, context, tam_arq, query_s);
-        }
+        }}
         break;
 
     default:
