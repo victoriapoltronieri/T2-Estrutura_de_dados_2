@@ -5,6 +5,7 @@
 #include "suffix.h"
 #include "str.h"
 #include "ordena.h"
+#include "search.h"
 
 int main(int argc, char** argv){
     /*
@@ -22,10 +23,6 @@ int main(int argc, char** argv){
     argv[3] == contexto - tamanho de caracteres considerados
     argv[4] == query, a ser buscada
     */
-
-    if(argc != 5){
-        printf("ERRO: Argumentos insuficientes!\n");
-    }
 
     FILE* fp = fopen(argv[2], "r");
     if(fp == NULL){
@@ -69,17 +66,20 @@ int main(int argc, char** argv){
     
     String *s =create_string(texto);
     
-
+    char *query;
+    char query_s[1000];
+    int q = 0;
+    int context;
+    
+    Suffix** suf = create_suf_array(s, tam_arq);
     switch (tipo_ordenacao){
     case 'a':{ //ok
-        Suffix** suf = create_suf_array(s, tam_arq);
         print_suf_array(suf, tam_arq);
         free(suf);
         break;
     }
     
     case 'o':{ //ok
-        Suffix** suf = create_suf_array(s, tam_arq);
         sort_suf_array(suf, tam_arq);
         print_suf_array(suf, tam_arq);
         free(suf);
@@ -87,7 +87,6 @@ int main(int argc, char** argv){
     }
     case 'r':{
         
-        Suffix** suf = create_suf_array(s, tam_arq);
         t = clock(); //!armazena tempo
         sort_suf_array(suf, tam_arq);
         t = clock() - t; //!tempo final - tempo inicial
@@ -123,9 +122,29 @@ int main(int argc, char** argv){
         break;
     
     case 'c':
+        query = (char *)malloc(sizeof(char) * strlen(argv[4]));
+        context = atoi(argv[3]);
+        while (*argv[4] != '\0')
+        {
+            if (*argv[4] != '"')
+                query[q] = *argv[4];
+            argv[4]++;
+            q++;
+        }
+        heapsort(suf, tam_arq);
+        search(suf, context, tam_arq, query);
         break;
     
     case 's':
+        heapsort(suf, tam_arq);
+        context = atoi(argv[3]);
+        
+        while (1)
+        {   
+            printf("Insira uma query para busca sem aspas:\n");
+            if(!(scanf("%[^\n]%*c", query_s)))break;
+            search(suf, context, tam_arq, query_s);
+        }
         break;
 
     default:
