@@ -25,9 +25,15 @@ int main(int argc, char** argv){
     argv[4] == query, a ser buscada
     */
 
+<<<<<<< HEAD
     if(argc != 5){
         printf("ERRO: Argumentos insuficientes!\n");
     }
+=======
+    /*if(argc != 5){
+        printf("ERRO: Argumentos insuficientes!\n");
+    }*/
+>>>>>>> a0ceb2e372e4f69f06ab9ddeb57ac2d3a9a94ca7
 
     FILE* fp = fopen(argv[2], "r");
     if(fp == NULL){
@@ -133,15 +139,20 @@ int main(int argc, char** argv){
         Suffix** suf = create_suf_array(s, tam_arq);
         query = (char *)malloc(sizeof(char) * strlen(argv[4]));
         context = atoi(argv[3]);
-        while (*argv[4] != '\0')
+        while (*argv[4] != '\0') //pega a query do terminal e armazena na variavel query
         {
             if (*argv[4] != '"')
                 query[q] = *argv[4];
             argv[4]++;
             q++;
         }
+<<<<<<< HEAD
         heapsort(suf, tam_arq);
         search(suf, context, tam_arq, query);
+=======
+        heapsort(suf, tam_arq); //ordena o vetor de sufixos
+        search(suf, context, tam_arq, query); //procura nos vetores de sufixos trexos que sejam iguais a query e imprime
+>>>>>>> a0ceb2e372e4f69f06ab9ddeb57ac2d3a9a94ca7
         }
         break;
     
@@ -151,6 +162,7 @@ int main(int argc, char** argv){
         char query_s[1000];
         int q = 0;
         Suffix** suf = create_suf_array(s, tam_arq);
+<<<<<<< HEAD
         heapsort(suf, tam_arq);
         context = atoi(argv[3]);
         
@@ -159,6 +171,15 @@ int main(int argc, char** argv){
             if(!(scanf("%[^\n]%*c", query_s))) break;
         
             search(suf, context, tam_arq, query_s);
+=======
+        heapsort(suf, tam_arq); //ordena os vetores de sufixos
+        context = atoi(argv[3]);
+        
+        while (1){   //loop para a pessoa ficar colocando querys e so sai se a pessoa der um '\n'
+            printf("Insira uma query para busca sem aspas:\n");
+            if(!(scanf("%[^\n]%*c", query_s))) break; //pega do terminal as palavras do terminal no scanf e compara a quantidade de palavras difitadas
+            search(suf, context, tam_arq, query_s);  //procura no vetor de sufixos as palavras
+>>>>>>> a0ceb2e372e4f69f06ab9ddeb57ac2d3a9a94ca7
         }}
         break;
 

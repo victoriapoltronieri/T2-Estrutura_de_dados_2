@@ -5,6 +5,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+void criaHeap(Suffix** vet, int inicio_vet, int tam_vetor);
+
+
 Suffix **heapsort(Suffix **vet, int tam_vetor)
 {
     int i;
@@ -15,7 +18,7 @@ Suffix **heapsort(Suffix **vet, int tam_vetor)
     }
 
     Suffix *aux;
-    //? ordena a heap; os maiores valores ficam no topo
+    // ordena a heap; os maiores valores ficam no topo
     for (i = tam_vetor - 1; i >= 0; i--)
     {
         aux = vet[0];
@@ -35,9 +38,12 @@ void criaHeap(Suffix **vet, int inicio_vet, int tam_vetor)
     {
         if (j < tam_vetor)
         {
+<<<<<<< HEAD
             /*int a = (vet[j]->index);
             int b = (vet[j + 1]->index);
             int comp = strcmp(vet[j]->s->c + a, vet[j + 1]->s->c + b);*/
+=======
+>>>>>>> a0ceb2e372e4f69f06ab9ddeb57ac2d3a9a94ca7
             int comp = compare_suffix(vet[j], vet[j + 1]);
 
             if (comp <= 0)
@@ -45,9 +51,12 @@ void criaHeap(Suffix **vet, int inicio_vet, int tam_vetor)
                 j += 1;
             }
         }
+<<<<<<< HEAD
         /*int a = (aux->index);
         int b = (vet[j]->index);
         int comp = strcmp(aux->s->c + a, vet[j]->s->c + b);*/
+=======
+>>>>>>> a0ceb2e372e4f69f06ab9ddeb57ac2d3a9a94ca7
         int comp = compare_suffix(aux, vet[j]);
         
         if(comp<=0){
