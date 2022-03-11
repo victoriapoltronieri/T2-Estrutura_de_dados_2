@@ -8,19 +8,6 @@
 #include "search.h"
 
 void search(Suffix **suf, int context, int lgt, char *key){
-<<<<<<< HEAD
-    int lgt_key = strlen(key);
-
-    for (int i = 0; i < lgt && lgt_key > 0; i++){
-        int a = (suf[i]->index);
-        if (*(suf[i]->s->c + a) > *key)
-            break;
-        if (strncmp(suf[i]->s->c + a, key, lgt_key) == 0)
-        {
-            if (a > context && a < lgt - (lgt_key + context - 1))
-            {
-                print_substring(suf[i]->s, a - context, a + context + lgt_key);
-=======
     String* aux=create_string(key);
     for(int i=0; i<lgt; i++){ // loop que ira varrer todos os sufixos
         int lgt;
@@ -32,7 +19,6 @@ void search(Suffix **suf, int context, int lgt, char *key){
             if (toupper(suf[i]->s->c[j + a]) != toupper(aux->c[j])) {
                 verificador=1;
                 break;
->>>>>>> a0ceb2e372e4f69f06ab9ddeb57ac2d3a9a94ca7
             }
         }
         if(verificador==0){ //imprime de acordo com o contexto
@@ -41,29 +27,5 @@ void search(Suffix **suf, int context, int lgt, char *key){
         }
 
     }
-<<<<<<< HEAD
-
-    /*int lgt_key = strlen(key);
-
-    for (int i = 0; i < lgt && lgt_key > 0; i++){
-        int a = (suf[i]->index);
-        for (int j = 0; j < lgt_key && lgt_key > 0; j++){
-            /*if (*(suf[i]->s->c + a) > *key)
-                break;
-            if (*(suf[i]->s->c + a) == *(key+j)){
-                a++;
-            }
-                if (a > context && a < lgt - (lgt_key + context - 1))
-                {
-                    print_substring(suf[i]->s, a - context, a + context + lgt_key);
-                }
-        }
-    }*/
-
-
-
-
-=======
     destroy_string(aux);
->>>>>>> a0ceb2e372e4f69f06ab9ddeb57ac2d3a9a94ca7
 }
