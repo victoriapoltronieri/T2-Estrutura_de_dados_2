@@ -33,7 +33,7 @@ Suffix **heapsort(Suffix **vet, int tam_vetor)
 void criaHeap(Suffix **vet, int inicio_vet, int tam_vetor)
 {
     Suffix *aux = vet[inicio_vet];
-    int j = inicio_vet * 2 + 1; 
+    int j = inicio_vet * 2 + 1;
     while (j <= tam_vetor)
     {
         if (j < tam_vetor)
