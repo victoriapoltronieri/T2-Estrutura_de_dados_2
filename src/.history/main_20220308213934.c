@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <ctype.h>
 #include "suffix.h"
 #include "str.h"
 #include "ordena.h"
@@ -112,7 +111,7 @@ int main(int argc, char** argv){
         t = clock() - t; //!tempo final - tempo inicial
         time = ((double)t)/((CLOCKS_PER_SEC)); //!tempo em segundos
         printf("Heapsort	%f (s)\n", time);
-        //print_suf_array(suf_heap, tam_arq);
+        print_suf_array(suf_heap, tam_arq);
 
         Suffix **suf_shell=create_suf_array(s, tam_arq);
         t = clock(); //!armazena tempo
@@ -136,7 +135,7 @@ int main(int argc, char** argv){
         while (*argv[4] != '\0')
         {
             if (*argv[4] != '"')
-                query[q] = *argv[4];
+                query[q] = toupper(*argv[4]);
             argv[4]++;
             q++;
         }
@@ -154,10 +153,10 @@ int main(int argc, char** argv){
         heapsort(suf, tam_arq);
         context = atoi(argv[3]);
         
-        while (1){   
+        while (1)
+        {   
             printf("Insira uma query para busca sem aspas:\n");
             if(!(scanf("%[^\n]%*c", query_s))) break;
-        
             search(suf, context, tam_arq, query_s);
         }}
         break;

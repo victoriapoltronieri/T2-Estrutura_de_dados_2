@@ -112,7 +112,7 @@ int main(int argc, char** argv){
         t = clock() - t; //!tempo final - tempo inicial
         time = ((double)t)/((CLOCKS_PER_SEC)); //!tempo em segundos
         printf("Heapsort	%f (s)\n", time);
-        //print_suf_array(suf_heap, tam_arq);
+        print_suf_array(suf_heap, tam_arq);
 
         Suffix **suf_shell=create_suf_array(s, tam_arq);
         t = clock(); //!armazena tempo

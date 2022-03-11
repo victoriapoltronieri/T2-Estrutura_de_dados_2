@@ -38,9 +38,9 @@ void criaHeap(Suffix **vet, int inicio_vet, int tam_vetor)
             /*int a = (vet[j]->index);
             int b = (vet[j + 1]->index);
             int comp = strcmp(vet[j]->s->c + a, vet[j + 1]->s->c + b);*/
-            int comp = compare_suffix(vet[j], vet[j + 1]);
+            int comp = compare_suffix(aux, vet[j - h]);
 
-            if (comp <= 0)
+            if (comp < 0)
             {
                 j += 1;
             }
@@ -50,7 +50,7 @@ void criaHeap(Suffix **vet, int inicio_vet, int tam_vetor)
         int comp = strcmp(aux->s->c + a, vet[j]->s->c + b);*/
         int comp = compare_suffix(aux, vet[j]);
         
-        if(comp<=0){
+        if(comp<0){
             vet[inicio_vet]=vet[j];
             inicio_vet=j;
             j=2*inicio_vet+1;

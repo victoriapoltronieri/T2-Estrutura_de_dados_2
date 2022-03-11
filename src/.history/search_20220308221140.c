@@ -8,7 +8,7 @@
 #include "search.h"
 
 void search(Suffix **suf, int context, int lgt, char *key){
-    int lgt_key = strlen(key);
+    /*int lgt_key = strlen(key);
 
     for (int i = 0; i < lgt && lgt_key > 0; i++){
         int a = (suf[i]->index);
@@ -21,16 +21,16 @@ void search(Suffix **suf, int context, int lgt, char *key){
                 print_substring(suf[i]->s, a - context, a + context + lgt_key);
             }
         }
-    }
+    }*/
 
-    /*int lgt_key = strlen(key);
+    int lgt_key = strlen(key);
 
     for (int i = 0; i < lgt && lgt_key > 0; i++){
         int a = (suf[i]->index);
         for (int j = 0; j < lgt_key && lgt_key > 0; j++){
             /*if (*(suf[i]->s->c + a) > *key)
-                break;
-            if (*(suf[i]->s->c + a) == *(key+j)){
+                break;*/
+            if (*(suf[i]->s->c + a) == *(key+i)){
                 a++;
             }
                 if (a > context && a < lgt - (lgt_key + context - 1))
@@ -38,7 +38,7 @@ void search(Suffix **suf, int context, int lgt, char *key){
                     print_substring(suf[i]->s, a - context, a + context + lgt_key);
                 }
         }
-    }*/
+    }
 
 
 

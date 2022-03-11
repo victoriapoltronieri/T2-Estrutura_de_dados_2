@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <ctype.h>
 #include "suffix.h"
 #include "str.h"
 #include "ordena.h"
@@ -154,10 +153,10 @@ int main(int argc, char** argv){
         heapsort(suf, tam_arq);
         context = atoi(argv[3]);
         
-        while (1){   
+        while (1)
+        {   
             printf("Insira uma query para busca sem aspas:\n");
-            if(!(scanf("%[^\n]%*c", query_s))) break;
-        
+            if(!(scanf("%[^\n]%*c", query_s)))break;
             search(suf, context, tam_arq, query_s);
         }}
         break;

@@ -29,7 +29,7 @@ void search(Suffix **suf, int context, int lgt, char *key){
         int a = (suf[i]->index);
         for (int j = 0; j < lgt_key && lgt_key > 0; j++){
             /*if (*(suf[i]->s->c + a) > *key)
-                break;
+                break;*/
             if (*(suf[i]->s->c + a) == *(key+j)){
                 a++;
             }

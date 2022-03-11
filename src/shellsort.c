@@ -22,9 +22,6 @@ void shellsort(Suffix **vet, int tam_vet)
             aux = vet[i];
             for (j = i; j > 0; j -= h)
             {
-                /*int a = (aux->index);
-                int b = (vet[j - h]->index);
-                int comp = strcmp(aux->s->c + a, vet[j - h]->s->c + b);*/
                 int comp = compare_suffix(aux, vet[j - h]);
                 if (comp > 0)
                     break;
