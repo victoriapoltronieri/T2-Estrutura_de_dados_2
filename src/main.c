@@ -25,9 +25,9 @@ int main(int argc, char** argv){
     argv[4] == query, a ser buscada
     */
 
-    if(argc != 5){
+    /*if(argc != 5){
         printf("ERRO: Argumentos insuficientes!\n");
-    }
+    }*/
 
     FILE* fp = fopen(argv[2], "r");
     if(fp == NULL){
@@ -133,15 +133,15 @@ int main(int argc, char** argv){
         Suffix** suf = create_suf_array(s, tam_arq);
         query = (char *)malloc(sizeof(char) * strlen(argv[4]));
         context = atoi(argv[3]);
-        while (*argv[4] != '\0')
+        while (*argv[4] != '\0') //pega a query do terminal e armazena na variavel query
         {
             if (*argv[4] != '"')
                 query[q] = *argv[4];
             argv[4]++;
             q++;
         }
-        heapsort(suf, tam_arq);
-        search(suf, context, tam_arq, query);
+        heapsort(suf, tam_arq); //ordena o vetor de sufixos
+        search(suf, context, tam_arq, query); //procura nos vetores de sufixos trexos que sejam iguais a query e imprime
         }
         break;
     
@@ -151,14 +151,13 @@ int main(int argc, char** argv){
         char query_s[1000];
         int q = 0;
         Suffix** suf = create_suf_array(s, tam_arq);
-        heapsort(suf, tam_arq);
+        heapsort(suf, tam_arq); //ordena os vetores de sufixos
         context = atoi(argv[3]);
         
-        while (1){   
+        while (1){   //loop para a pessoa ficar colocando querys e so sai se a pessoa der um '\n'
             printf("Insira uma query para busca sem aspas:\n");
-            if(!(scanf("%[^\n]%*c", query_s))) break;
-        
-            search(suf, context, tam_arq, query_s);
+            if(!(scanf("%[^\n]%*c", query_s))) break; //pega do terminal as palavras do terminal no scanf e compara a quantidade de palavras difitadas
+            search(suf, context, tam_arq, query_s);  //procura no vetor de sufixos as palavras
         }}
         break;
 
